@@ -65,6 +65,7 @@ $pad: 24px;
 .grid {
   background: white;
   margin: 0 0 $pad 0;
+  overflow: hidden;
   @extend %clearfix;
 }
 
@@ -80,6 +81,9 @@ $pad: 24px;
 }
 .col-1-3 {
   width: 33.33%;
+}
+.col-1-1 {
+  width: 100%;
 }
 .col-1-2 {
   width: 50%;

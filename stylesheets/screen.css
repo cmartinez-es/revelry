@@ -251,75 +251,81 @@ a {
 .grid, .demo-one, .demo-two, .demo-three, .demo-four, .demo-five {
   background: white;
   margin: 0 0 24px 0;
+  overflow: hidden;
 }
 
-/* line 71, ../sass/_layout.scss */
+/* line 72, ../sass/_layout.scss */
 .col, .demo-one .main, .demo-one .sidebar, .demo-two .main, .demo-two .sidebar, .demo-three > div, .demo-four .main, .demo-four .sidebar, .demo-five .main, .demo-five .sidebar, .demo-five .a1 {
   float: left;
   padding-right: 24px;
 }
-/* line 74, ../sass/_layout.scss */
+/* line 75, ../sass/_layout.scss */
 .col:last-of-type, .demo-one .main:last-of-type, .demo-one .sidebar:last-of-type, .demo-two .main:last-of-type, .demo-two .sidebar:last-of-type, .demo-three > div:last-of-type, .demo-four .main:last-of-type, .demo-four .sidebar:last-of-type, .demo-five .main:last-of-type, .demo-five .sidebar:last-of-type, .demo-five .a1:last-of-type {
   padding-right: 0;
 }
 
-/* line 78, ../sass/_layout.scss */
+/* line 79, ../sass/_layout.scss */
 .col-2-3, .demo-one .main, .demo-two .main {
   width: 66.66%;
 }
 
-/* line 81, ../sass/_layout.scss */
+/* line 82, ../sass/_layout.scss */
 .col-1-3, .demo-one .sidebar, .demo-two .sidebar, .demo-five .sidebar {
   width: 33.33%;
 }
 
-/* line 84, ../sass/_layout.scss */
+/* line 85, ../sass/_layout.scss */
+.col-1-1 {
+  width: 100%;
+}
+
+/* line 88, ../sass/_layout.scss */
 .col-1-2, .demo-four .main {
   width: 50%;
 }
 
-/* line 87, ../sass/_layout.scss */
+/* line 91, ../sass/_layout.scss */
 .col-1-4, .demo-four .sidebar, .demo-five .a1 {
   width: 25%;
 }
 
-/* line 90, ../sass/_layout.scss */
+/* line 94, ../sass/_layout.scss */
 .col-3-4 {
   width: 75%;
 }
 
-/* line 93, ../sass/_layout.scss */
+/* line 97, ../sass/_layout.scss */
 .col-1-5 {
   width: 20%;
 }
 
-/* line 96, ../sass/_layout.scss */
+/* line 100, ../sass/_layout.scss */
 .col-1-6, .demo-five .main {
   width: 16.66%;
 }
 
-/* line 99, ../sass/_layout.scss */
+/* line 103, ../sass/_layout.scss */
 .col-1-7 {
   width: 14.28%;
 }
 
-/* line 102, ../sass/_layout.scss */
+/* line 106, ../sass/_layout.scss */
 .col-1-8, .demo-three > div {
   width: 12.5%;
 }
 
-/* line 106, ../sass/_layout.scss */
+/* line 110, ../sass/_layout.scss */
 .module {
   padding: 24px;
   background: #eee;
 }
 
 /* Opt-in outside padding */
-/* line 112, ../sass/_layout.scss */
+/* line 116, ../sass/_layout.scss */
 .grid-pad, .demo-two, .demo-three, .demo-four, .demo-five {
   padding: 24px 0 24px 24px;
 }
-/* line 114, ../sass/_layout.scss */
+/* line 118, ../sass/_layout.scss */
 .grid-pad .col:last-of-type, .demo-two .col:last-of-type, .demo-three .col:last-of-type, .demo-four .col:last-of-type, .demo-five .col:last-of-type, .grid-pad .demo-one .main:last-of-type, .demo-one .grid-pad .main:last-of-type, .demo-three .demo-one .main:last-of-type, .demo-one .demo-three .main:last-of-type, .grid-pad .demo-one .sidebar:last-of-type, .demo-one .grid-pad .sidebar:last-of-type, .demo-three .demo-one .sidebar:last-of-type, .demo-one .demo-three .sidebar:last-of-type, .demo-two .main:last-of-type, .demo-two .sidebar:last-of-type, .demo-three > div:last-of-type, .demo-four .main:last-of-type, .demo-four .sidebar:last-of-type, .demo-five .main:last-of-type, .demo-five .sidebar:last-of-type, .demo-five .a1:last-of-type {
   padding-right: 24px;
 }
@@ -695,7 +701,7 @@ font-family:'Monotype Sorts', dingbats, 'ITC Zapf Dingbats', fantasy;
 /* -- SPRITES -- */
 /* line 130, icons/*.png */
 .icons-sprite, .facebook, .twitter, .bnl, .bnr {
-  background: url('../images/icons-s3a127199e7.png') no-repeat;
+  background: url('../..images/icons-s3a127199e7.png') no-repeat;
 }
 
 /* line 9, ../sass/_sprites.scss */
