@@ -1,0 +1,896 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* -- Colors -- */
+/* Grey */
+/* Grey Black */
+/* Green */
+/* Black */
+/* Blue */
+/* White */
+/* Light Grey */
+/* Black */
+/* line 1, ../sass/base/_helpers.scss */
+.clearfix, .grid, .demo-one, .demo-two, .demo-three, .demo-four, .demo-five {
+  *zoom: 1;
+}
+/* line 3, ../sass/base/_helpers.scss */
+.clearfix:after, .grid:after, .demo-one:after, .demo-two:after, .demo-three:after, .demo-four:after, .demo-five:after {
+  clear: both;
+}
+/* line 6, ../sass/base/_helpers.scss */
+.clearfix:before, .grid:before, .demo-one:before, .demo-two:before, .demo-three:before, .demo-four:before, .demo-five:before, .clearfix:after, .grid:after, .demo-one:after, .demo-two:after, .demo-three:after, .demo-four:after, .demo-five:after {
+  content: " ";
+  display: table;
+}
+
+/* line 28, ../sass/base/_helpers.scss */
+.left {
+  float: left;
+}
+
+/* line 32, ../sass/base/_helpers.scss */
+.right {
+  float: right;
+}
+
+/* line 36, ../sass/base/_helpers.scss */
+::-moz-selection {
+  background: #5cc9e8;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 42, ../sass/base/_helpers.scss */
+::selection {
+  background: #5cc9e8;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 48, ../sass/base/_helpers.scss */
+img::selection {
+  background: transparent;
+}
+
+/* line 51, ../sass/base/_helpers.scss */
+img::-moz-selection {
+  background: transparent;
+}
+
+/* line 55, ../sass/base/_helpers.scss */
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 59, ../sass/base/_helpers.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ABAA9A;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 68, ../sass/base/_helpers.scss */
+.divider {
+  /*use with hr tag*/
+  border-top: 1px solid #ABAA9A;
+  clear: both;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+/* line 77, ../sass/base/_helpers.scss */
+img {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+/* line 84, ../sass/base/_helpers.scss */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+/* line 93, ../sass/base/_helpers.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 97, ../sass/base/_helpers.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/* line 101, ../sass/base/_helpers.scss */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* line 106, ../sass/base/_helpers.scss */
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*
+* Image replacement
+*/
+/* line 115, ../sass/base/_helpers.scss */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+/* line 121, ../sass/base/_helpers.scss */
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+/*
+ Responsive box-shadow
+ */
+/* line 132, ../sass/base/_helpers.scss */
+.box {
+  position: relative;
+}
+
+/* line 135, ../sass/base/_helpers.scss */
+.box:after {
+  position: absolute;
+  right: 10px;
+  /* Positioned some distance in from the left and right edges to avoid the box-shadow blur from peeking through on the sides of the box */
+  bottom: 0;
+  left: 10px;
+  height: 20px;
+  border-radius: 0 0 50% 50% / 0 0 20px 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  content: '';
+}
+
+/* The content needs to be in an element with a non-transparent background to cover parts of the drop shadow. */
+/* line 146, ../sass/base/_helpers.scss */
+.box-content {
+  position: relative;
+  z-index: 1;
+  /* Make sure it’s rendered on top of the pseudo-element */
+  padding: 10px;
+  background: #fff;
+}
+
+/* line 153, ../sass/base/_helpers.scss */
+.list-inline {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/*
+Overflow Ellipsis
+*/
+/* line 162, ../sass/base/_helpers.scss */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*
+Word Wrapping
+*/
+/* line 174, ../sass/base/_helpers.scss */
+.word-wrap {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/*
+Hover Active Focus
+*/
+/*
+a {
+    @include hoverActiveFocus {
+        color: red;
+        text-decoration:underline;
+    }
+}
+*/
+/* -- RESPONSIVE -- */
+/*
+.profile-pic {
+  float: left;
+  width: 250px;
+  @include breakpoint("mobile") { width: 100% ;}
+  @include breakpoint("smartphone") { width: 125px; }
+  @include breakpoint("tablet") { float: none; }
+}
+*/
+/* line 48, ../sass/_layout.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 54, ../sass/_layout.scss */
+.clearfix, .grid, .demo-one, .demo-two, .demo-three, .demo-four, .demo-five {
+  *zoom: 1;
+}
+/* line 56, ../sass/_layout.scss */
+.clearfix:after, .grid:after, .demo-one:after, .demo-two:after, .demo-three:after, .demo-four:after, .demo-five:after {
+  clear: both;
+}
+/* line 59, ../sass/_layout.scss */
+.clearfix:before, .grid:before, .demo-one:before, .demo-two:before, .demo-three:before, .demo-four:before, .demo-five:before, .clearfix:after, .grid:after, .demo-one:after, .demo-two:after, .demo-three:after, .demo-four:after, .demo-five:after {
+  content: " ";
+  display: table;
+}
+
+/* line 65, ../sass/_layout.scss */
+.grid, .demo-one, .demo-two, .demo-three, .demo-four, .demo-five {
+  background: white;
+  margin: 0 0 24px 0;
+}
+
+/* line 71, ../sass/_layout.scss */
+.col, .demo-one .main, .demo-one .sidebar, .demo-two .main, .demo-two .sidebar, .demo-three > div, .demo-four .main, .demo-four .sidebar, .demo-five .main, .demo-five .sidebar, .demo-five .a1 {
+  float: left;
+  padding-right: 24px;
+}
+/* line 74, ../sass/_layout.scss */
+.col:last-of-type, .demo-one .main:last-of-type, .demo-one .sidebar:last-of-type, .demo-two .main:last-of-type, .demo-two .sidebar:last-of-type, .demo-three > div:last-of-type, .demo-four .main:last-of-type, .demo-four .sidebar:last-of-type, .demo-five .main:last-of-type, .demo-five .sidebar:last-of-type, .demo-five .a1:last-of-type {
+  padding-right: 0;
+}
+
+/* line 78, ../sass/_layout.scss */
+.col-2-3, .demo-one .main, .demo-two .main {
+  width: 66.66%;
+}
+
+/* line 81, ../sass/_layout.scss */
+.col-1-3, .demo-one .sidebar, .demo-two .sidebar, .demo-five .sidebar {
+  width: 33.33%;
+}
+
+/* line 84, ../sass/_layout.scss */
+.col-1-2, .demo-four .main {
+  width: 50%;
+}
+
+/* line 87, ../sass/_layout.scss */
+.col-1-4, .demo-four .sidebar, .demo-five .a1 {
+  width: 25%;
+}
+
+/* line 90, ../sass/_layout.scss */
+.col-3-4 {
+  width: 75%;
+}
+
+/* line 93, ../sass/_layout.scss */
+.col-1-5 {
+  width: 20%;
+}
+
+/* line 96, ../sass/_layout.scss */
+.col-1-6, .demo-five .main {
+  width: 16.66%;
+}
+
+/* line 99, ../sass/_layout.scss */
+.col-1-7 {
+  width: 14.28%;
+}
+
+/* line 102, ../sass/_layout.scss */
+.col-1-8, .demo-three > div {
+  width: 12.5%;
+}
+
+/* line 106, ../sass/_layout.scss */
+.module {
+  padding: 24px;
+  background: #eee;
+}
+
+/* Opt-in outside padding */
+/* line 112, ../sass/_layout.scss */
+.grid-pad, .demo-two, .demo-three, .demo-four, .demo-five {
+  padding: 24px 0 24px 24px;
+}
+/* line 114, ../sass/_layout.scss */
+.grid-pad .col:last-of-type, .demo-two .col:last-of-type, .demo-three .col:last-of-type, .demo-four .col:last-of-type, .demo-five .col:last-of-type, .grid-pad .demo-one .main:last-of-type, .demo-one .grid-pad .main:last-of-type, .demo-three .demo-one .main:last-of-type, .demo-one .demo-three .main:last-of-type, .grid-pad .demo-one .sidebar:last-of-type, .demo-one .grid-pad .sidebar:last-of-type, .demo-three .demo-one .sidebar:last-of-type, .demo-one .demo-three .sidebar:last-of-type, .demo-two .main:last-of-type, .demo-two .sidebar:last-of-type, .demo-three > div:last-of-type, .demo-four .main:last-of-type, .demo-four .sidebar:last-of-type, .demo-five .main:last-of-type, .demo-five .sidebar:last-of-type, .demo-five .a1:last-of-type {
+  padding-right: 24px;
+}
+
+/* Semantic grid stuff */
+/*
+@include rem('padding', 16px 0 0 0);
+@include font-size-2(1.3);
+
+.element2 {
+  @include rem('border', 1px solid red);
+  @include rem('padding', 10px !important);
+}
+*/
+/*
+body {
+  font-size: em(16);
+}
+*/
+/*
+$ContentWidth: 640 !default;
+
+h1 {
+   @include grHeadlineSize();
+}
+
+p {
+   @include grFontSize();
+}
+*/
+/* -- TYPE RATIO --
+
+Name  Ratio % of larger value % of smaller value
+unison   1:1   100%  100%
+minor second   15:16   93.75%  106.667%
+major second   8:9   88.889%   112.5%
+minor third  5:6   83.333%   120%
+major third  4:5   80%   125%
+perfect fourth   3:4   75%   133.333%
+augmented fourth or diminished fifth  1:√2  70.711%   141.421%
+perfect fifth  2:3   66.667%   150%
+minor sixth  5:8   62.5%   160%
+major sixth  3:5   60%   166.667%
+minor seventh  9:16  56.25%  177.778%
+major seventh  8:15  53.333%   187.5%
+octave   1:2   50%   200%
+major tenth  2:5   40%   250%
+major eleventh   3:8   37.5%   266.667%
+major twelfth  1:3   33.333%   300%
+double octave  1:4   25%   400%
+*/
+/* ------ Variables */
+/* ------ Mixins */
+/* ------ Common Elements
+p, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $type-margin-bottom;
+  line-height: $line-height-base;
+}
+p {
+  @include type(6);
+}
+h5 {
+  @include type(5);
+}
+h4 {
+  @include type(4);
+}
+h3 {
+  @include type(3);
+}
+h2 {
+  @include type(2);
+}
+h1 {
+  @include type(1);
+}
+*/
+/* @group modular scale calculator use Ems@16
+
+/* http://modularscale.com/scale/?px1=19&px2=14&ra1=1.618&ra2=0
+$ratio:1.618;
+$default:16; /* current accepted ‘default’ pixel size browsers use
+$base-number:19;
+$important-number:14;
+
+/* $a-scale is based on $base-number and give bigger numbers
+$a-scale:$base-number/$default; /* this is the base font size
+$a-scale-2:$a-scale*$ratio;
+$a-scale-3:$a-scale-2*$ratio;
+$a-scale-4:$a-scale-3*$ratio;
+$a-scale-5:$a-scale-4*$ratio;
+$a-scale-6:$a-scale-5*$ratio;
+
+/* $a-scale- is based on $base-number and give smaller numbers
+$a-scale-:$a-scale;
+$a-scale—2:$a-scale-/$ratio;
+$a-scale—3:$a-scale—2/$ratio;
+$a-scale—4:$a-scale—3/$ratio;
+$a-scale—5:$a-scale—4/$ratio;
+$a-scale—6:$a-scale—5/$ratio;
+
+/* b-scale is based on $important-number 
+$b-scale:$important-number/$default; /* these are additional numbers based on $important-number 
+$b-scale-2:$b-scale*$ratio;
+$b-scale-3:$b-scale-2*$ratio;
+$b-scale-4:$b-scale-3*$ratio;
+$b-scale-5:$b-scale-4*$ratio;
+$b-scale-6:$b-scale-5*$ratio;
+
+
+/* @end */
+              /* -- Colors --
+$bg_c: #f4f4f5; /* Grey
+$bodytext: #333333; /* Grey Black
+$c1: #a1c32c !default; /* Green
+$c1_border: #7e9822;
+$c1_complementario: complement($c1);
+$c1_l10: lighten( $c1, 10% );
+$c1_l20: lighten( $c1, 20% );
+$c1_d10: darken( $c1, 10% );
+$c1_d20: darken( $c1, 20% );
+$c1_complementario_l10: lighten(complement( $c1, 10% ));
+$c1_complementario_l20: lighten(complement( $c1, 20% ));
+$c1_complementario_d10: darken(complement( $c1, 10% ));
+$c1_complementario_d20: darken(complement( $c1, 20% ));
+$c2: #333333; /* Black
+$c2_border: #444444;
+$a: #879aa9;
+$a_h: #6a8193;
+$c_selection: #5cc9e8; /* Blue
+$wh: #FFFFFF; /* White
+$wh_border: #e0e5e9; /* Light Grey
+$bl: #000000; /* Black */
+/* line 136, ../sass/base/_colors.scss */
+.a {
+  background-color: #879aa9;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 144, ../sass/base/_colors.scss */
+.a_h {
+  background-color: #6a8193;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 152, ../sass/base/_colors.scss */
+.c1 {
+  background-color: #a1c32c;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 160, ../sass/base/_colors.scss */
+.c1_b {
+  border: 2px solid #7e9822;
+  background-color: #a1c32c;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 169, ../sass/base/_colors.scss */
+.c1_c {
+  background-color: #4e2cc3;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 177, ../sass/base/_colors.scss */
+.c2 {
+  background-color: #333333;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 185, ../sass/base/_colors.scss */
+.c2_b {
+  border: 2px solid #444444;
+  background-color: #333333;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 194, ../sass/base/_colors.scss */
+.e {
+  background-color: #c6ff00;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+/* line 202, ../sass/base/_colors.scss */
+.t {
+  background-color: #2ca1c3;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+@font-face {
+  font-family: "My Font Name";
+  src: url('/stylesheets/fonts/fontName.eot');
+  src: url('/stylesheets/fonts/fontName.eot?#iefix') format('eot'), url('/stylesheets/fonts/fontName.woff') format('woff'), url('/stylesheets/fonts/fontName.ttf') format('truetype'), url('/stylesheets/fonts/fontName.svg') format('svg');
+}
+
+/* line 19, ../sass/_font-stacks.scss */
+h1, h2, h3, h4, span.dropcap {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+  font-style: normal;
+}
+
+/* line 23, ../sass/_font-stacks.scss */
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Minion Pro", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  font-weight: 300;
+}
+
+/* line 27, ../sass/_font-stacks.scss */
+pre, code {
+  font-family: Consolas, Menlo, "inconsolata", Monaco, "Courier New", Courier, 'Nimbus Mono L', FreeMono, monospace;
+}
+
+/*
+h1 {
+  @extend %myfont;
+}
+
+http://d1c4j9e82wzmkz.cloudfront.net/fonts/
+*/
+/*
+font-family: Palatino, “Palatino Linotype”, “Urw Palladio L”, serif;
+font-family: Georgia, "Times New Roman", Times, serif, "Nimbus Roman No9 L", FreeSerif;
+font-family: Georgia, “Dejavu Serif”, serif;
+font-family: “Courier New”, Courier, “Nimbus Mono L”, Monospace;
+font-family: “Helvetica Neue”, Helvetica, “Nimbus Sans L”, sans-serif;
+font-family: Verdana, “Dejavu Sans”, sans-serif;
+
+font-family : Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+font-family : Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, sans-serif;
+font-family : "Courier New", "Nimbus Mono L", Monospace;
+
+Headings & Copy
+Below are compound groups of standard, cross-platform fonts (Mac, Win, *nix, fallback) which have been assembled and tested for complimentary typographic clarity and readability per usage.
+
+Serif
+Headings
+Copy
+'Copperplate Light', 'Copperplate Gothic Light', FreeSerif, serif
+'Copperplate Light', 'Copperplate Gothic Light', FreeSerif, serif
+Baskerville, 'Times, Times New Roman', FreeSerif, serif
+Baskerville, 'Times New Roman', Times, FreeSerif, serif
+Cambria, Georgia, Times, 'Times New Roman', FreeSerif, serif
+Cambria, Georgia, Times, 'Times New Roman', FreeSerif, serif
+Garamond, 'Hoefler Text', Palatino, 'Palatino Linotype', Norasi, serif
+Garamond, 'Hoefler Text', 'Times New Roman', Times, FreeSerif, serif
+Georgia, Times, 'Times New Roman', Norasi, serif
+Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', Norasi, serif
+Palatino, 'Palatino Linotype', 'Hoefler Text', Times, 'Times New Roman', Norasi, serif
+Palatino, 'Palatino Linotype', Georgia, Times, 'Times New Roman', Norasi, serif
+Times, 'Times New Roman', Georgia, FreeSerif, serif
+Times, 'Times New Roman', Georgia, FreeSerif, serif
+Sans-serif
+Arial, 'Helvetica Neue', Helvetica, Garuda, sans-serif
+Arial, 'Helvetica Neue', Helvetica, Garuda, sans-serif
+'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+'Franklin Gothic Medium', 'Arial Narrow Bold', Arial, FreeSans, sans-serif
+'Franklin Gothic Medium', 'Arial Narrow Bold', Arial, FreeSans, sans-serif
+Futura, 'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+Futura, 'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+Geneva, Verdana, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Kalimati, sans-serif
+Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Kalimati, sans-serif
+'Gill Sans MT', 'Gill Sans', Trebuchet, Calibri, Kalimati, sans-serif
+'Gill Sans MT', 'Gill Sans', Calibri, Trebuchet, Kalimati, sans-serif
+Helvetica, 'Helvetica Neue', Arial, FreeSans, sans-serif
+'Helvetica Neue', Arial, Helvetica, FreeSans, sans-serif
+Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Garuda, sans-serif
+'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Garuda, sans-serif
+Tahoma, Verdana, Geneva, Kalimati, sans-serif
+Tahoma, Geneva, Verdana, Kalimati, sans-serif
+Trebuchet, Tahoma, Arial, Kalimati, sans-serif
+Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, Kalimati, sans-serif
+Verdana, Tahoma, Geneva, Kalimati, sans-serif
+Verdana, Geneva, Tahoma, Kalimati, sans-serif
+Monospaced
+Consolas, 'Lucida Console', Monaco, FreeMono, monospace
+Consolas, 'Lucida Console', Monaco, FreeMono, monospace
+'Courier New', Courier, FreeMono, monospace
+'Courier New', Courier, FreeMono, monospace
+
+http://cssfontstack.com/
+*/
+/* Times New Roman-based stack
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/* Modern Georgia-based serif stack
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/* Traditional Garamond-based serif stack
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/* Helvetica/Arial-based sans serif stack
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Verdana-based sans serif stack
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/* Trebuchet-based sans serif stack
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/* Impact-based sans serif stack
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/* Monospace stack
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+*/
+/*
+font-family:Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+font-family:'Arial Narrow', 'Nimbus Sans L', sans-serif;
+font-family:'Arial Black', Gadget, sans-serif;
+font-family:'Bookman Old Style', Bookman, 'URW Bookman L', 'Palatino Linotype', serif;
+font-family:'Century Gothic', futura, 'URW Gothic L', Verdana, sans-serif;
+font-family:'Comic Sans MS', cursive;
+font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+font-family:'Courier New', Courier, 'Nimbus Mono L', serif, monospace;
+font-family:Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+font-family:Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-family:'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
+font-family:symbol, 'Standard Symbols L';
+font-family:'Tahoma', sans-serif;
+font-family:Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+font-family:'Trebuchet MS', sans-serif;
+font-family:Verdana, Geneva, 'DejaVu Sans', sans-serif;
+font-family:Webdings, fantasy;
+font-family:Wingdings, fantasy;
+font-family:'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;
+font-family:'Monotype Sorts', dingbats, 'ITC Zapf Dingbats', fantasy;
+
+%font-stack-brand {
+  font-family: 'Gotham Rounded A', 'Gotham Rounded B', "proxima-nova-soft", sans-serif;
+}
+%font-stack-headers {
+  font-family: 'Whitney Cond A', 'Whitney Cond B', "ronnia-condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+*/
+/* -- SPRITES -- */
+/* line 130, icons/*.png */
+.icons-sprite, .facebook, .twitter, .bnl, .bnr {
+  background: url('../..images/icons-s3a127199e7.png') no-repeat;
+}
+
+/* line 9, ../sass/_sprites.scss */
+.facebook {
+  background-position: 0 -396px;
+  height: 47px;
+  width: 47px;
+}
+
+/* line 13, ../sass/_sprites.scss */
+.twitter {
+  background-position: 0 -264px;
+  height: 47px;
+  width: 47px;
+}
+
+/* line 16, ../sass/_sprites.scss */
+.bnl {
+  background-position: 0 -358px;
+  height: 19px;
+  width: 13px;
+}
+
+/* line 19, ../sass/_sprites.scss */
+.bnr {
+  padding: 5px 10px;
+  background-position: 0 -377px;
+  height: 19px;
+  width: 13px;
+}
+
+/*
+Have two versions of your CSS sprites: standard dimensions and @2x
+
+Maykel Loomans wrote a very useful post last year on using CSS Sprites to optimize your website for Retina displays.
+
+Loomans recommends having two sprite files, one for standard and one for high-res.
+
+Sprites
+
+Using the media query I shared above, simply change the background image reference and then resize the background image.
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+  .logo{
+    background-image:url(assets/sprite@2x.png);
+    background-size:500px 500px;  This replicates the original standard sprite dimensions, and assumes the actual dimensions of sprite@2x.png are 1000x1000px
+  }
+}*/
+/* Global Styles */
+/* line 50, ../sass/screen.scss */
+html,
+button,
+input,
+select,
+textarea {
+  color: #333333;
+}
+
+/* line 55, ../sass/screen.scss */
+body {
+  margin-top: 24px;
+  /* just for test purposes */
+  font-size: 16px;
+}
+
+/* line 60, ../sass/screen.scss */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+}
+
+/* line 61, ../sass/screen.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 63, ../sass/screen.scss */
+a {
+  color: #879aa9;
+}
+/* line 65, ../sass/screen.scss */
+a:link {
+  color: #879aa9;
+}
+/* line 66, ../sass/screen.scss */
+a:hover {
+  color: #6a8193;
+}
+/* line 67, ../sass/screen.scss */
+a:visited {
+  color: #333333;
+}
+
+/* line 72, ../sass/screen.scss */
+h1, h2, h3, h4, h5, h6, blockquote, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
+table, small {
+  margin-top: 0;
+}
+
+/* line 78, ../sass/screen.scss */
+h1 {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 0.75;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 81, ../sass/screen.scss */
+h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 85, ../sass/screen.scss */
+h3 {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.0909;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 88, ../sass/screen.scss */
+h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 92, ../sass/screen.scss */
+blockquote, h5, h6, iframe, label, p, pre, address, td, th, ul, ol, dl, dd, hr,
+table, legend, fieldset {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 98, ../sass/screen.scss */
+small {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.7143;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* line 101, ../sass/screen.scss */
+span.dropcap {
+  font-size: 400%;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  margin: 10px 7px 0 0;
+  line-height: 0.7em;
+}
+
+/* line 110, ../sass/screen.scss */
+span.amp {
+  font-family: Baskerville,"Goudy Old Style","Palatino","Book Antiqua",serif;
+  font-size: 110%;
+  font-style: italic;
+}
+
+/* line 115, ../sass/screen.scss */
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select {
+  background: white;
+  border: 1px solid #cccccc;
+  padding: 4px 6px;
+  vertical-align: middle;
+  outline: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  transition: border linear 0.4s, box-shadow linear 0.4s;
+  -o-transition: border linear 0.4s, box-shadow linear 0.4s;
+  -moz-transition: border linear 0.4s, box-shadow linear 0.4s;
+  -webkit-transition: border linear 0.4s, box-shadow linear 0.4s;
+  margin: 0;
+  max-width: 33%;
+  width: 100%;
+  display: block;
+}
+
+/* line 133, ../sass/screen.scss */
+input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="email"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="url"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+  border: 1px solid;
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(81, 168, 236, 0.5);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(81, 168, 236, 0.5);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(81, 168, 236, 0.5);
+}

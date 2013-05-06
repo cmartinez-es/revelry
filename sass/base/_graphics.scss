@@ -1,0 +1,185 @@
+.colorpallete div {
+  width: 3em;
+  height: 3em;
+  display: inline-block;
+
+  $num-colours: 6;
+  $base-colour: #c24;
+  $spectrum: 180deg;
+  $offset: 30deg;
+
+  @for $i from 0 to $num-colors {
+    &:nth-child(#{$i}) {
+      background: adjust-hue($base-colour, $offset + $specturm / $num-colors * $i);
+    }
+  }
+}
+@mixin square ($side : 100px, $color: green) {
+     width: $side;
+     height: $side;
+     background: $color;
+}
+
+.ourSquare {
+    @include square;
+}
+
+.ourSquare {
+    @include square(50px, #4355AA);
+    border: 3px solid yellow;
+}
+
+// mixins
+
+@mixin circle($width : 100px, $color : #CC0066) {
+width: $width;
+height: $width;
+background: $color;
+@include border-radius($width);
+}
+
+// styles
+
+.ourCircle {
+    @include circle;
+}
+.ourSecondCircle {
+    @include circle(200px, #443762);
+}
+
+// mixins
+ @mixin rect ($width : 200px, $height : 100px, $color: green) {
+ width: $width;
+ height: $height;
+ background: $color;
+}
+
+// styles
+
+.ourRectangle {
+ @include rect(310px, 100px, #43FFAA);
+ border: 3px solid #228811;
+}
+
+// mixins
+@mixin triangle ($width : 50px, $color : #1245D3) {
+    width: 0;
+    height: 0;
+    border-width: $width / 2;
+    border-style: solid;
+    border-color: transparent transparent $color transparent;
+}
+
+// styles
+.ourTriangle {
+    @include triangle;
+}
+
+@import "compass/css3"; // we import the ccs3 module as always
+
+@mixin rotatingTriangle ($width, $color, $rotation) {
+    width: 0;
+    height: 0;
+    border-width: $width / 2;
+    border-style: solid;
+    border-color: transparent transparent $color transparent;
+    @include rotate($rotation);
+}
+
+.triangleRotate1 {
+    @include rotatingTriangle(15px, #1234ff, 77deg);
+}.triangleRotate2 {
+    @include rotatingTriangle(30px, #123499, -15deg);
+}.triangleRotate3 {
+    @include rotatingTriangle(40px, #1DD423, 227deg);
+}.triangleRotate4 {
+    @include rotatingTriangle(70px, #5231E3, 150deg);
+}
+
+/*
+$primary: #f00;
+$secondary: complement($primary);
+
+@include background(linear-gradient(scale-color(#dd453d, $lightness: 50%), #dd453d, scale-color(#dd453d, $lightness: -50%)));
+
+
+@include background(linear-gradient(lighten(#dd453d, 22.4%), #dd453d, darken(#dd453d, 28%)));
+
+
+@include background(linear-gradient(scale-color(#88a23d, $lightness: 50%), #88a23d, scale-color(#88a23d, $lightness: -50%)));
+
+
+@include background(linear-gradient(lighten(#88a23d, 22.4%), #88a23d, darken(#88a23d, 28%)));
+*/
+
+/*
+li {
+    $navbar-width: 800px;
+    $items: 5;
+    $navbar-color: #ce4dd6;
+    float: left;
+    width: $navbar-width/$items - 10px;
+
+    background-color:
+      lighten($navbar-color, 20%);
+    &:hover {
+      background-color:
+        lighten($navbar-color, 10%);
+    }
+  }
+%lip
+    clear: both
+    display: block
+    height: 5px
+    background: url('/public/images/patterns/lip/lip.png') no-repeat
+    background-size: 100% 100%
+
+%reversed-lip
+    @extend %lip
+    background-image: url('/public/images/patterns/lip/reversed-lip.png')
+%valley
+    position: relative
+    overflow: hidden
+
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+    &::before
+        @extend %lip
+        top: 0
+    &::after
+        @extend %reversed-lip
+        bottom: 0
+%plane
+    box-shadow: 0 2px 5px rgba($black, .1)
+    border-radius: $border-radius-medium
+
+%white-plane
+    @extend %plane
+    background-color: $white
+
+%off-white-plane
+    @extend %plane
+    background-color: $off-white
+
+%seam
+    clear: both
+    display: block
+    height: 0px
+    border-top: 1px solid rgba($black, .12)
+    border-bottom: 1px solid rgba($white, .15)
+
+%well
+    box-shadow: inset 0 1px 5px rgba($black, .14)
+    border-radius: $border-radius-medium
+
+%off-white-well
+    @extend %well
+    background-color: $off-white
+
+%light-gray-well
+    @extend %well
+    background-color: $light-gray*/

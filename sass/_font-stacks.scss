@@ -1,0 +1,164 @@
+// Import the Compass Font Face module
+@import "compass/css3/font-face";
+
+// Define our font
+@include font-face('My Font Name',
+  font-files(
+    'fontName.woff', woff,
+    'fontName.ttf', ttf,
+    'fontName.svg', svg),
+    'fontName.eot');
+
+%myfont {
+  font-family: 'My Font Name', sans-serif;
+}
+
+%font-stack-brand {
+  font-family: 'Gotham Rounded A', 'Gotham Rounded B', "proxima-nova-soft", sans-serif;
+}
+%font-stack-headers {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+  font-style: normal;
+}
+%font-stack-body {
+  font-family: "Minion Pro", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  font-weight: 300;
+}
+%font-stack-code {
+  font-family: Consolas, Menlo, "inconsolata", Monaco, "Courier New", Courier, 'Nimbus Mono L', FreeMono, monospace;
+}
+%font-stack-icons {
+  font-family: monospace;
+}
+
+/*
+h1 {
+  @extend %myfont;
+}
+
+http://d1c4j9e82wzmkz.cloudfront.net/fonts/
+*/
+
+/*
+font-family: Palatino, “Palatino Linotype”, “Urw Palladio L”, serif;
+font-family: Georgia, "Times New Roman", Times, serif, "Nimbus Roman No9 L", FreeSerif;
+font-family: Georgia, “Dejavu Serif”, serif;
+font-family: “Courier New”, Courier, “Nimbus Mono L”, Monospace;
+font-family: “Helvetica Neue”, Helvetica, “Nimbus Sans L”, sans-serif;
+font-family: Verdana, “Dejavu Sans”, sans-serif;
+
+font-family : Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+font-family : Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, sans-serif;
+font-family : "Courier New", "Nimbus Mono L", Monospace;
+
+Headings & Copy
+Below are compound groups of standard, cross-platform fonts (Mac, Win, *nix, fallback) which have been assembled and tested for complimentary typographic clarity and readability per usage.
+
+Serif
+Headings
+Copy
+'Copperplate Light', 'Copperplate Gothic Light', FreeSerif, serif
+'Copperplate Light', 'Copperplate Gothic Light', FreeSerif, serif
+Baskerville, 'Times, Times New Roman', FreeSerif, serif
+Baskerville, 'Times New Roman', Times, FreeSerif, serif
+Cambria, Georgia, Times, 'Times New Roman', FreeSerif, serif
+Cambria, Georgia, Times, 'Times New Roman', FreeSerif, serif
+Garamond, 'Hoefler Text', Palatino, 'Palatino Linotype', Norasi, serif
+Garamond, 'Hoefler Text', 'Times New Roman', Times, FreeSerif, serif
+Georgia, Times, 'Times New Roman', Norasi, serif
+Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', Norasi, serif
+Palatino, 'Palatino Linotype', 'Hoefler Text', Times, 'Times New Roman', Norasi, serif
+Palatino, 'Palatino Linotype', Georgia, Times, 'Times New Roman', Norasi, serif
+Times, 'Times New Roman', Georgia, FreeSerif, serif
+Times, 'Times New Roman', Georgia, FreeSerif, serif
+Sans-serif
+Arial, 'Helvetica Neue', Helvetica, Garuda, sans-serif
+Arial, 'Helvetica Neue', Helvetica, Garuda, sans-serif
+'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+'Franklin Gothic Medium', 'Arial Narrow Bold', Arial, FreeSans, sans-serif
+'Franklin Gothic Medium', 'Arial Narrow Bold', Arial, FreeSans, sans-serif
+Futura, 'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+Futura, 'Century Gothic', 'Apple Gothic', FreeSans, sans-serif
+Geneva, Verdana, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Kalimati, sans-serif
+Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Kalimati, sans-serif
+'Gill Sans MT', 'Gill Sans', Trebuchet, Calibri, Kalimati, sans-serif
+'Gill Sans MT', 'Gill Sans', Calibri, Trebuchet, Kalimati, sans-serif
+Helvetica, 'Helvetica Neue', Arial, FreeSans, sans-serif
+'Helvetica Neue', Arial, Helvetica, FreeSans, sans-serif
+Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Garuda, sans-serif
+'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Garuda, sans-serif
+Tahoma, Verdana, Geneva, Kalimati, sans-serif
+Tahoma, Geneva, Verdana, Kalimati, sans-serif
+Trebuchet, Tahoma, Arial, Kalimati, sans-serif
+Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, Kalimati, sans-serif
+Verdana, Tahoma, Geneva, Kalimati, sans-serif
+Verdana, Geneva, Tahoma, Kalimati, sans-serif
+Monospaced
+Consolas, 'Lucida Console', Monaco, FreeMono, monospace
+Consolas, 'Lucida Console', Monaco, FreeMono, monospace
+'Courier New', Courier, FreeMono, monospace
+'Courier New', Courier, FreeMono, monospace
+
+http://cssfontstack.com/
+*/
+/* Times New Roman-based stack
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/* Modern Georgia-based serif stack
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/* Traditional Garamond-based serif stack
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/* Helvetica/Arial-based sans serif stack
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Verdana-based sans serif stack
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/* Trebuchet-based sans serif stack
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/* Impact-based sans serif stack
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/* Monospace stack
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+*/
+
+/*
+font-family:Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+font-family:'Arial Narrow', 'Nimbus Sans L', sans-serif;
+font-family:'Arial Black', Gadget, sans-serif;
+font-family:'Bookman Old Style', Bookman, 'URW Bookman L', 'Palatino Linotype', serif;
+font-family:'Century Gothic', futura, 'URW Gothic L', Verdana, sans-serif;
+font-family:'Comic Sans MS', cursive;
+font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+font-family:'Courier New', Courier, 'Nimbus Mono L', serif, monospace;
+font-family:Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+font-family:Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-family:'Lucida Sans Unicode','Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
+font-family:symbol, 'Standard Symbols L';
+font-family:'Tahoma', sans-serif;
+font-family:Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+font-family:'Trebuchet MS', sans-serif;
+font-family:Verdana, Geneva, 'DejaVu Sans', sans-serif;
+font-family:Webdings, fantasy;
+font-family:Wingdings, fantasy;
+font-family:'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;
+font-family:'Monotype Sorts', dingbats, 'ITC Zapf Dingbats', fantasy;
+
+%font-stack-brand {
+  font-family: 'Gotham Rounded A', 'Gotham Rounded B', "proxima-nova-soft", sans-serif;
+}
+%font-stack-headers {
+  font-family: 'Whitney Cond A', 'Whitney Cond B', "ronnia-condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+*/

@@ -1,0 +1,206 @@
+%clearfix {
+  *zoom: 1;
+  &:after {
+    clear: both;
+  }
+  &:before,&:after{
+    content: " ";
+    display: table;
+  }
+}
+
+%clearfix2 {
+  display: inline-block;
+  zoom: 1;
+  &:after {
+    height: 0;
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+::-moz-selection {
+  background: $c_selection;
+  color: $wh;
+  text-shadow: none;
+}
+
+::selection {
+  background: $c_selection;
+  color: $wh;
+  text-shadow: none;
+}
+
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+
+body {
+  -webkit-tap-highlight-color: rgba(0,0,0,0); //-webkit-tap-highlight-color: rgba(255,0,0, 0.62);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ABAA9A;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.divider {
+ /*use with hr tag*/
+ border-top: 1px solid #ABAA9A;
+ clear: both;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+ img {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+ fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+ textarea {
+  resize: vertical;
+}
+
+.invisible {
+ visibility: hidden;
+}
+
+.hidden {
+ display: none !important;
+ visibility: hidden;
+}
+
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*
+* Image replacement
+*/
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}
+
+/*
+ Responsive box-shadow
+ */
+.box {
+ position:relative;
+}
+.box:after {
+ position:absolute;
+ right:10px; /* Positioned some distance in from the left and right edges to avoid the box-shadow blur from peeking through on the sides of the box */
+ bottom:0;
+ left:10px;
+ height:20px;
+ border-radius:0 0 50% 50% / 0 0 20px 20px;
+ box-shadow:0 10px 10px rgba(0, 0, 0, 0.5);
+ content:'';
+}
+ /* The content needs to be in an element with a non-transparent background to cover parts of the drop shadow. */
+.box-content {
+ position:relative;
+ z-index:1; /* Make sure it’s rendered on top of the pseudo-element */
+ padding:10px;
+ background:#fff;
+}
+
+.list-inline {
+ display: inline-block;
+ zoom: 1;
+ *display: inline;
+}
+
+/*
+Overflow Ellipsis
+*/
+%ellipsis {
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+.ellipsis {
+ @extend %ellipsis;
+}
+
+/*
+Word Wrapping
+*/
+%word-wrap {
+ -ms-word-break: break-all;
+ word-break: break-all;
+ word-break: break-word;
+ -webkit-hyphens: auto;
+ -moz-hyphens: auto;
+ hyphens: auto;
+}
+.word-wrap {
+ @extend %word-wrap;
+}
+
+/*
+Hover Active Focus
+*/
+@mixin hoverActiveFocus($property, $value) {
+    &:hover, &:active, &:focus {
+        #{$property}: $value;
+    }
+}
+@mixin hoverActiveFocus {
+    &:hover, &:active, &:focus {
+        @content;
+    }
+}
+/*
+a {
+    @include hoverActiveFocus {
+        color: red;
+        text-decoration:underline;
+    }
+}
+*/

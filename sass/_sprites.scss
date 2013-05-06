@@ -1,0 +1,40 @@
+/* -- SPRITES -- */
+@import "icons/*.png";
+
+@mixin sprite_css($name) {
+  @include icons-sprite($name);
+  height: icons-sprite-height($name);
+  width: icons-sprite-width($name);
+}
+.facebook {
+  @include sprite_css(facebook);
+  // facebook references to facebook.png
+}
+.twitter {
+  @include sprite_css(twitter);
+}
+.bnl {
+  @include sprite_css(button_next_left);
+}
+.bnr {
+  padding: 5px 10px;
+  @include sprite_css(button_next_right);
+}
+//  Recuerda, iconos mejor en etiqueta i: <p><i class="icon  icon-comment"></i>23 comments</p>
+/*
+Have two versions of your CSS sprites: standard dimensions and @2x
+
+Maykel Loomans wrote a very useful post last year on using CSS Sprites to optimize your website for Retina displays.
+
+Loomans recommends having two sprite files, one for standard and one for high-res.
+
+Sprites
+
+Using the media query I shared above, simply change the background image reference and then resize the background image.
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+  .logo{
+    background-image:url(assets/sprite@2x.png);
+    background-size:500px 500px;  This replicates the original standard sprite dimensions, and assumes the actual dimensions of sprite@2x.png are 1000x1000px
+  }
+}*/

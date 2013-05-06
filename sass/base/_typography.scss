@@ -1,0 +1,369 @@
+// -- REM --
+// Set up your mixin to create REM font-size and margin-bottom (with px fallback) and unitless line-height.
+// You can set a different line-height than the document's line height.
+
+@mixin font-size($size, $line-height:$doc-line-height) {
+    font-size: 0px + $size;
+    font-size: $size / $doc-font-size +rem;
+    line-height: round($line-height / $size*10000) / 10000;
+    margin-bottom: 0px + $line-height;
+    margin-bottom: ($line-height / $doc-font-size)+rem ;
+}
+
+$pixelBase : $doc-font-size;
+@mixin font-size-2($sizeValue: 1.6){
+  font-size: ($sizeValue * 10) + px;
+  font-size: (($sizeValue * 10) / $pixelBase)  + rem;
+}
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: $doc-font-size;
+@mixin rem($property, $px-values) {
+// Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem;
+// Print the first line in pixel values
+  #{$property}: $px-values;
+// If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+  // Create an empty list that we can dump values into
+    $rem-values: unquote("");
+    @each $value in $px-values {
+    // If the value is zero or a string or a color, return unchanged input
+      @if $value == 0 or type-of($value) == "string" or type-of($value) == "color" {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+  // Return the property and its list of converted values
+    #{$property}: $rem-values; } }
+
+/*
+@include rem('padding', 16px 0 0 0);
+@include font-size-2(1.3);
+
+.element2 {
+  @include rem('border', 1px solid red);
+  @include rem('padding', 10px !important);
+}
+*/
+
+// -- EM --
+@function em($pixels, $context: $pixelBase) {
+  @return #{$pixels/$context}em
+}
+/*
+body {
+  font-size: em(16);
+}
+*/
+
+// -- GOLDEN RATIO --
+//
+// Golden Ratio Typography
+// --------------------------------------------------
+
+
+// Golden Ratio Math
+//
+// Let's do some math so we can build beautiful typography and vertical rhythm.
+// For any magic to happen, set the $ContentWidth variable on _variables.scss
+// to match your content box width (normally this is 640px, 740px, etc...).
+//
+// Many thanks to Chris Pearson's scary math skills http://t.co/KoeUoEWrNS
+// and his Golden Ratio Calculator http://t.co/6MyXPtRrlu
+//
+// @author Greg Rickaby
+// @since 1.0
+// @requires $ContentWidth
+// ----------------------------------
+
+$phi: (1 + sqrt(5)) / 2; // 1.61803398874989 or "The Golden Ratio"
+$xoo: 1 / (2 * $phi);
+$yoo: sqrt($ContentWidth) / $phi; // Line-height
+$zoo: $phi - $xoo * (1 - ($ContentWidth / $yoo));
+
+
+// Title Size
+//
+// Calculated title size based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grTitleSize();
+// --------------------------------
+@function calcTitleSize() {
+  $foo: calcFontSize() * pow($phi, 2);
+    @return round($foo);
+}
+
+@mixin grTitleSize() {
+  font-size: calcTitleSize() + px;
+  font-size: (calcTitleSize() / calcFontSize()) + rem;
+  line-height: calcTitleSize() / $yoo;
+}
+
+
+// Headline Size
+//
+// Calculated headline size based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grHeadlineSize
+// --------------------------------
+@function calcHeadlineSize() {
+  $foo: calcFontSize() * pow($phi, 1);
+    @return round($foo);
+}
+
+@mixin grHeadlineSize() {
+  font-size: calcHeadlineSize() + px;
+  font-size: (calcHeadlineSize() / calcFontSize()) + rem;
+  line-height: calcHeadlineSize() / $yoo;
+}
+
+
+// Sub-headline Size
+//
+// Caclulated sub-headline size based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grSubHeadlineSize();
+// --------------------------------
+@function calcSubHeadlineSize() {
+  $foo: calcFontSize() * sqrt($phi);
+    @return round($foo);
+}
+
+@mixin grSubHeadlineSize() {
+  font-size: calcSubHeadlineSize() + px;
+  font-size: (calcSubHeadlineSize() / calcFontSize()) + rem;
+  line-height: calcSubHeadlineSize() / $yoo;
+}
+
+
+// Font Size
+//
+// Calculated font size based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grFontSize();
+// --------------------------------
+@function calcFontSize() {
+  $foo: sqrt($ContentWidth) / $phi;
+    @return round($foo);
+}
+
+@mixin grFontSize() {
+  font-size: calcFontSize() + px;
+  font-size: (calcFontSize() / calcFontSize()) + rem;
+  line-height: calcFontSize() / $yoo;
+}
+
+
+// Secondary Text
+//
+// Calculated secondary text size based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grSecondaryText();
+// --------------------------------
+@function calcSecondaryText() {
+  $foo: calcFontSize() * (1 / sqrt($phi));
+    @return round($foo);
+}
+
+@mixin grSecondaryText() {
+  font-size: calcSecondaryText() + px;
+  font-size: (calcSecondaryText() / calcFontSize()) + rem;
+  line-height: calcSecondaryText() / $yoo;
+}
+
+
+// Default Line Height
+//
+// Calculate default line-height based on $ContentWidth.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grBaseLineHeight();
+// --------------------------------
+@function calcBaseLineHeight() {
+  $foobar: sqrt($ContentWidth) / $phi;
+  $foo: calcFontSize() * ($phi - $xoo * (1 - ($ContentWidth / pow(calcFontSize() * $phi, 2))));
+  $fo: $foo / $foobar;
+    @return $fo;
+}
+
+@mixin grBaseLineHeight() {
+  line-height: calcBaseLineHeight();
+}
+
+
+// Custom Line Height
+//
+// Calculate a Golden Ratio line-height based on a custom
+// value specified by you.
+//
+// @author Greg Rickaby
+// @since 1.0
+//
+// Usage: @include grCustomLineHeight(26);
+// --------------------------------
+@function calcCustomLineHeight($target) {
+  $foobar: sqrt($ContentWidth) / $phi;
+  $foo: $target / $foobar;
+    @return $foo;
+}
+
+@mixin grCustomLineHeight($target) {
+  line-height: calcCustomLineHeight($target);
+}
+
+/*
+$ContentWidth: 640 !default;
+
+h1 {
+   @include grHeadlineSize();
+}
+
+p {
+   @include grFontSize();
+}
+*/
+
+
+/* -- TYPE RATIO --
+
+Name  Ratio % of larger value % of smaller value
+unison   1:1   100%  100%
+minor second   15:16   93.75%  106.667%
+major second   8:9   88.889%   112.5%
+minor third  5:6   83.333%   120%
+major third  4:5   80%   125%
+perfect fourth   3:4   75%   133.333%
+augmented fourth or diminished fifth  1:√2  70.711%   141.421%
+perfect fifth  2:3   66.667%   150%
+minor sixth  5:8   62.5%   160%
+major sixth  3:5   60%   166.667%
+minor seventh  9:16  56.25%  177.778%
+major seventh  8:15  53.333%   187.5%
+octave   1:2   50%   200%
+major tenth  2:5   40%   250%
+major eleventh   3:8   37.5%   266.667%
+major twelfth  1:3   33.333%   300%
+double octave  1:4   25%   400%
+*/
+/* ------ Variables */
+$type-ratio: 1.25; // major third
+$pwr-2: $type-ratio * $type-ratio;
+$pwr-3: $type-ratio * $type-ratio * $type-ratio;
+$pwr-4: $type-ratio * $type-ratio * $type-ratio * $type-ratio;
+$type-base-px: $doc-font-size;
+$type-base: 1rem; // 16px
+$line-height-base: $type-ratio;
+$type-margin-bottom: $type-base * $pwr-2;
+
+/* ------ Mixins */
+@mixin type($level) {
+  @if $level == 7 { // 1rem | 16px
+    font-size: $type-base-px;
+    font-size: $type-base;
+  }
+  @if $level == 6 { // 1.25rem | 20px
+    font-size: $type-base-px * $type-ratio;
+    font-size: $type-base * $type-ratio;
+  }
+  @if $level == 5 { // 25px | 1.5625rem
+    font-size: ($type-base-px * $pwr-2);
+    font-size: ($type-base * $pwr-2);
+  }
+  @if $level == 4 { // 31.25px | 1.95313rem
+    font-size: ($type-base-px * $pwr-3);
+    font-size: ($type-base * $pwr-3);
+  }
+  @if $level == 3 { // 39.0625px | 2.44141rem
+    font-size: ($type-base-px * $pwr-4);
+    font-size: ($type-base * $pwr-4);
+  }
+  @if $level == 2 { // 48.82813px | 3.05176rem
+    font-size: ($type-base-px * $pwr-2 * $pwr-3);
+    font-size: ($type-base * $pwr-2 * $pwr-3);
+  }
+  @if $level == 1 { // 61.03516px | 3.8147rem
+    font-size: ($type-base-px * $pwr-3 * $pwr-3);
+    font-size: ($type-base * $pwr-3 * $pwr-3);
+  }
+}
+/* ------ Common Elements
+p, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $type-margin-bottom;
+  line-height: $line-height-base;
+}
+p {
+  @include type(6);
+}
+h5 {
+  @include type(5);
+}
+h4 {
+  @include type(4);
+}
+h3 {
+  @include type(3);
+}
+h2 {
+  @include type(2);
+}
+h1 {
+  @include type(1);
+}
+*/
+
+/* @group modular scale calculator use Ems@16
+
+/* http://modularscale.com/scale/?px1=19&px2=14&ra1=1.618&ra2=0
+$ratio:1.618;
+$default:16; /* current accepted ‘default’ pixel size browsers use
+$base-number:19;
+$important-number:14;
+
+/* $a-scale is based on $base-number and give bigger numbers
+$a-scale:$base-number/$default; /* this is the base font size
+$a-scale-2:$a-scale*$ratio;
+$a-scale-3:$a-scale-2*$ratio;
+$a-scale-4:$a-scale-3*$ratio;
+$a-scale-5:$a-scale-4*$ratio;
+$a-scale-6:$a-scale-5*$ratio;
+
+/* $a-scale- is based on $base-number and give smaller numbers
+$a-scale-:$a-scale;
+$a-scale—2:$a-scale-/$ratio;
+$a-scale—3:$a-scale—2/$ratio;
+$a-scale—4:$a-scale—3/$ratio;
+$a-scale—5:$a-scale—4/$ratio;
+$a-scale—6:$a-scale—5/$ratio;
+
+/* b-scale is based on $important-number 
+$b-scale:$important-number/$default; /* these are additional numbers based on $important-number 
+$b-scale-2:$b-scale*$ratio;
+$b-scale-3:$b-scale-2*$ratio;
+$b-scale-4:$b-scale-3*$ratio;
+$b-scale-5:$b-scale-4*$ratio;
+$b-scale-6:$b-scale-5*$ratio;
+
+
+/* @end */

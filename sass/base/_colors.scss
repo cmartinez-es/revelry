@@ -1,0 +1,208 @@
+/* -- Colors --
+$bg_c: #f4f4f5; /* Grey
+$bodytext: #333333; /* Grey Black
+$c1: #a1c32c !default; /* Green
+$c1_border: #7e9822;
+$c1_complementario: complement($c1);
+$c1_l10: lighten( $c1, 10% );
+$c1_l20: lighten( $c1, 20% );
+$c1_d10: darken( $c1, 10% );
+$c1_d20: darken( $c1, 20% );
+$c1_complementario_l10: lighten(complement( $c1, 10% ));
+$c1_complementario_l20: lighten(complement( $c1, 20% ));
+$c1_complementario_d10: darken(complement( $c1, 10% ));
+$c1_complementario_d20: darken(complement( $c1, 20% ));
+$c2: #333333; /* Black
+$c2_border: #444444;
+$a: #879aa9;
+$a_h: #6a8193;
+$c_selection: #5cc9e8; /* Blue
+$wh: #FFFFFF; /* White
+$wh_border: #e0e5e9; /* Light Grey
+$bl: #000000; /* Black */
+
+$equalized: hsl(hue($c1), 100%, 50%);
+//------------------------
+
+$mono-darker: darken($equalized, 20%);
+$mono-lighter: lighten($equalized, 20%);
+
+$complimentary: complement($equalized);
+
+$analogous: 22.57;
+$analogous-a: adjust-hue($c1, $analogous);
+$analogous-b: adjust-hue($c1, $analogous * -1);
+$analogous-a-e: adjust-hue($equalized, $analogous);
+$analogous-b-e: adjust-hue($equalized, $analogous * -1);
+$analogous-a-custom: hsl(hue($c1) + $analogous, 35.29%, 86.66%);
+$analogous-b-custom: hsl(hue($c1) - $analogous, 35.29%, 86.66%);
+
+
+$split-comp: 22.57;
+$split-comp-a: adjust-hue(complement($c1), $split-comp);
+$split-comp-b: adjust-hue(complement($c1), $split-comp * -1);
+$split-comp-a-e: adjust-hue(complement($equalized), $split-comp);
+$split-comp-b-e: adjust-hue(complement($equalized), $split-comp * -1);
+
+$triad: 120;
+$triad-pos: adjust-hue($c1, $triad);
+$triad-neg: adjust-hue($c1, $triad * -1);
+$triad-pos-e: adjust-hue($equalized, $triad);
+$triad-neg-e: adjust-hue($equalized, $triad * -1);
+
+$rectangle: 22.57;
+$rectangle-a: complement($c1);
+$rectangle-b: adjust-hue($c1, $rectangle);
+$rectangle-c: complement($rectangle-b);
+$rectangle-a-e: complement($equalized);
+$rectangle-b-e: adjust-hue($equalized, $rectangle);
+$rectangle-c-e: complement($rectangle-b-e);
+
+$square-a: complement($c1);
+$square-b: adjust-hue($c1, 90);
+$square-c: complement($square-b);
+$square-a-e: complement($equalized);
+$square-b-e: adjust-hue($equalized, 90);
+$square-c-e: complement($square-b-e);
+
+$compound-adjust-a: 17;
+$compound-adjust-b: 120;
+$compound-adjust-c: 99;
+$compound-a: adjust-hue($c1, $compound-adjust-a);
+$compound-b: adjust-hue($c1, $compound-adjust-b);
+$compound-c: adjust-hue($c1, $compound-adjust-c);
+$compound-a-e: adjust-hue($equalized, $compound-adjust-a);
+$compound-b-e: adjust-hue($equalized, $compound-adjust-b);
+$compound-c-e: adjust-hue($equalized, $compound-adjust-c);
+
+/*
+Color Example
+$base-color: #333
+$base-color-light: #555
+$alt-color: $hotpink
+$background-color: $white //#fdf6e3
+
+// For the menu
+$linkColor: #333
+$pillColor: $green
+
+
+// TODO: clean up this mess! :D
+
+$blackberry   : #4a1a2b  /* purple
+$eucalyptus   : #207861  /* teal
+$citrus       : #9fad00  /* green
+$supernova    : #ffcc00  /* yellow
+$flush-orange : #ff8400  /* orange
+$matisse      : #1673a1  /* blue
+$cinnabar     : #e53b19  /* red
+
+
+$link-normal : $matisse
+$link-hover : $matisse
+$link-active : $matisse
+$link-visited : darken($matisse, 12)
+$link-focus : $matisse
+
+$cream: #eee8d5
+
+$c1-color: #c55600
+$secondary-color-1: #c58100
+$secondary-color-2: #c2000a
+$complementary-color: #007970
+
+//$border-color: #d5d5d5
+$border-color: lighten($c1-color, 50%)
+
+$title-alt: #93a1a1
+
+$highlighted-text-color : white
+$subheading-text-color  : $eucalyptus
+
+$error-feedback         : darken($cinnabar, 10)
+$warning-feedback       : darken($supernova, 10)
+$success-feedback       : darken($citrus, 3)
+
+$stroke: $base-color
+$disabled-stroke: $silver
+$disabled-text-color: $base-color-light
+$button-base-bg: darken($flush-orange, 3)
+$button-text-color: $white
+$destructive-button-base-bg: $cinnabar
+$destructive-button-text-color: white
+$disabled-button-base-bg       : lighten($silver, 3)
+$disabled-button-text-color    : lighten($grey, 5)
+*/
+.a {
+  background-color: $a;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.a_h {
+  background-color: $a_h;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.c1 {
+  background-color: $c1;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.c1_b {
+  border: 2px solid $c1_border;
+  background-color: $c1;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.c1_c {
+  background-color: $c1_complementario;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.c2 {
+  background-color: $c2;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.c2_b {
+  border: 2px solid $c2_border;
+  background-color: $c2;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.e {
+  background-color: $equalized;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+
+.t {
+  background-color: $triad-pos;
+  display: block;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
