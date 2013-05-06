@@ -695,7 +695,7 @@ font-family:'Monotype Sorts', dingbats, 'ITC Zapf Dingbats', fantasy;
 /* -- SPRITES -- */
 /* line 130, icons/*.png */
 .icons-sprite, .facebook, .twitter, .bnl, .bnr {
-  background: url('../..images/icons-s3a127199e7.png') no-repeat;
+  background: url('../images/icons-s3a127199e7.png') no-repeat;
 }
 
 /* line 9, ../sass/_sprites.scss */

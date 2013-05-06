@@ -11,7 +11,7 @@ javascripts_dir = "js"
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
 
-http_generated_images_path = "../..images/"
+http_generated_images_path = "../images/"
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
